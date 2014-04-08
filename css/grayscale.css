@@ -1,6 +1,3 @@
-path {
-  fill: white;
-}
 #logo {
   margin: 30px;
 }
@@ -137,6 +134,7 @@ a:focus {
   }
   .brand-heading {
     font-size: 100px;
+    margin-top: 85px;
   }
   .intro-text {
     font-size: 25px;
