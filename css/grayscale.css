@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 35px;
+  margin-bottom: 30px;
   text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
@@ -154,6 +154,44 @@ a:focus {
   -moz-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
 }
+#arrow {
+  margin-bottom: 25px;
+}
+.primary-background {
+  background-color: #1bd9f5;
+}
+.dark-background {
+  background-color: #662546;
+}
+#light-container {
+  width: 100%;
+  background-color: #FFF8E6;
+}
+#light-container h1,
+#light-container h2,
+#light-container p {
+  color: #777;
+}
+.bios img {
+  width: 200px;
+  margin-top: 10px;
+}
+.bios h3 {
+  color: #777;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.bios p {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  color: #777;
+  margin: 0px;
+}
+.logos {
+  margin-top: 40px;
+}
 .btn-circle:hover,
 .btn-circle:focus {
   outline: none;
@@ -206,6 +244,7 @@ a:focus {
 }
 .content-section {
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 .download-section {
   width: 100%;
@@ -224,7 +263,8 @@ a:focus {
 }
 @media (min-width: 767px) {
   .content-section {
-    padding-top: 250px;
+    padding-top: 200px;
+    padding-bottom: 200px;
   }
   .download-section {
     padding: 100px 0;
@@ -294,4 +334,19 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+.website-link {
+  color: white;
+  background-color: #662546;
+  border-color: #662546;
+}
+a.website-link:hover,
+a.website-link:focus {
+  background-color: #8b3360;
+  border-color: #8b3360;
+  color: white;
+}
+.bio-links {
+  margin-top: 10px;
+  text-align: left;
 }

@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 35px;
+    margin-bottom:30px;
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
@@ -197,6 +197,56 @@ a:focus {
     transition: background .3s ease-in-out;
 }
 
+#arrow{
+  margin-bottom:25px;
+}
+
+.primary-background{
+  background-color:@primary;
+}
+
+
+.dark-background{
+  background-color:@dark;
+}
+
+#light-container{
+  width:100%;
+  background-color: #FFF8E6;
+  h1, h2,p{
+   color: #777;
+  }
+}
+
+.bios{
+
+  img{
+    width:200px;
+    margin-top:10px;
+  }
+
+  h3{
+    color: #777;
+    font-size:16px;
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+
+
+
+  p{
+    font-size:15px;
+    line-height: 1.5;
+    text-align:left;
+    color:#777;
+    margin:0px;
+  }
+}
+
+.logos{
+  margin-top:40px;
+}
+
 .btn-circle:hover,
 .btn-circle:focus {
     outline: none;
@@ -260,6 +310,7 @@ a:focus {
 
  .content-section {
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .download-section {
@@ -282,7 +333,8 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 200px;
+        padding-bottom: 200px;
     }
 
     .download-section {
@@ -374,3 +426,21 @@ body {
 }
 
 
+.website-link{
+  color:white;
+  background-color:@dark;
+  border-color: @dark;
+
+
+}
+a.website-link:hover, a.website-link:focus{
+    background-color: lighten(@dark, 10%);
+    border-color: lighten(@dark, 10%);
+    color:white;
+  }
+
+
+.bio-links{
+  margin-top:10px;
+  text-align:left;
+}
