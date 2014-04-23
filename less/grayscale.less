@@ -16,9 +16,12 @@ body {
     font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: @light;
     background-color: @dark;
+    padding: 0;
 }
 
 html {
+
+    padding: 0;
     width: 100%;
     height: 100%;
 }
@@ -151,6 +154,11 @@ a:focus {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
+    img{
+      max-width:100%;
+      width:200px;
+    }
 }
 
 .intro-body {
@@ -313,16 +321,22 @@ a:focus {
     padding-bottom: 100px;
 }
 
-.download-section {
+
+
+.location-section {
     width: 100%;
     padding: 50px 0;
+    padding-top:200px;
+    padding-bottom:200px;
     color: @light;
-    //background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
-    background-color: @primary;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+
+   .container{
+    div{
+
+   background-color:rgba(0,0,0,0.5);
+    }
+  }
+
 }
 
 #map {
@@ -450,8 +464,79 @@ tr{
   font-size:20px;
 }
 
-.table tbody tr td{
-  text-align:left;
-  width:50px;
-  padding:20px;
+
+@media(min-width:767px){
+  .table tbody tr td{
+    text-align:left;
+    width:50px;
+    padding:20px;
+  }
+  .location-section{
+  background: url("/img/media_lab.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+}
+
+@media(max-width:767px){
+  .table tbody tr td{
+    text-align:left;
+    font-size:15px;
+  }
+
+  #partners{
+    img{
+      margin-top:10px;
+      width:100%;
+    }
+  }
+
+
+  .location-section {
+    background: url("/img/media_lab.jpg") no-repeat center center;
+    width:100%;
+  }
+}
+
+.sched-hacking{
+  background-color:#99FEA1;
+}
+
+.sched-food{
+  background-color:#FCFFAD;
+}
+
+.sched-talks{
+  background-color:#ADFEFF;
+}
+
+.sched-ideas{
+  background-color:#FFADAD;
+}
+
+.sched-prepare{
+  background-color:#FBADFF;
+}
+
+.sched-prizes{
+  background-color:#ADB4FF;
+}
+
+
+#footer{
+  position:relative;
+    height:20px;
+    background-color: @primary;
+  .footer-content{
+    color:@dark;
+    p{
+      font-size:12px;
+      margin:0px;
+    }
+    a{
+      color:@dark;
+    }
+  }
 }
