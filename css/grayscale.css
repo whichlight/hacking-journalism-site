@@ -178,6 +178,9 @@ a:focus {
 .light-container p {
   color: #777;
 }
+.bios div div {
+  margin-bottom: 20px;
+}
 .bios img {
   width: 200px;
   margin-top: 10px;
