@@ -166,6 +166,21 @@ a:focus {
 .primary-background {
   background-color: #1bd9f5;
 }
+#sponsors h3 {
+  color: #777;
+}
+#sponsors p {
+  font-size: 16px;
+}
+#sponsors .blurb {
+  margin-top: 30px;
+}
+#sponsors a {
+  color: #555;
+}
+.text-left {
+  text-align: left;
+}
 .dark-background {
   background-color: #662546;
 }
