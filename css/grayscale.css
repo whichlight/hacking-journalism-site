@@ -216,6 +216,12 @@ a:focus {
   color: #777;
   margin: 0px;
 }
+#speakers .bios p {
+  color: #ffffff;
+}
+#speakers .bios h3 {
+  color: #ffffff;
+}
 .logos {
   margin-top: 40px;
 }
@@ -375,7 +381,6 @@ a.website-link:focus {
 }
 .bio-links {
   margin-top: 10px;
-  text-align: left;
 }
 tr {
   color: #777;
