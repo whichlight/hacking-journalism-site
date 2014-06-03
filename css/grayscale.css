@@ -386,6 +386,12 @@ tr {
   color: #777;
   font-size: 20px;
 }
+.prize-type {
+  font-weight: 700;
+}
+.prizes-section ul {
+  text-align: left;
+}
 @media (min-width: 767px) {
   .table tbody tr td {
     text-align: left;
