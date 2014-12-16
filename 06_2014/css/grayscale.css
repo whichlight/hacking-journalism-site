@@ -121,7 +121,7 @@ a:focus {
 }
 .intro img {
   max-width: 100%;
-  width: 300px;
+  width: 200px;
 }
 .intro-body {
   display: table-cell;
@@ -139,7 +139,7 @@ a:focus {
     padding: 0;
   }
   .brand-heading {
-    font-size: 80px;
+    font-size: 100px;
     margin-top: 85px;
   }
   .intro-text {
@@ -181,20 +181,6 @@ a:focus {
 #sponsors a {
   color: #555;
 }
-
-#producers h3 {
-  color: #777;
-}
-#producers p {
-  font-size: 16px;
-}
-#producers .blurb {
-  margin-top: 30px;
-}
-#producers a {
-  color: #555;
-}
-
 .text-left {
   text-align: left;
 }
@@ -413,7 +399,7 @@ tr {
     padding: 20px;
   }
   .location-section {
-    background: url("/img/timessquare.jpeg") no-repeat center center fixed;
+    background: url("/img/media_lab.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
