@@ -129,7 +129,7 @@
 
 <script type="text/javascript">
 
-  var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1FP6NWNuBMJYe4mT7sfpUq-CmF2OufRDdxJlLUrjHmZ8&output=html';
+  var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1rHXkCN3-DzegG2ZK95SR0Eoer3CnpRmPb92AQ3qd5OQ&output=html';
 
   function init() {
     Tabletop.init( { key: public_spreadsheet_url,
@@ -139,6 +139,7 @@
 
   function showInfo(data, tabletop) {
     window.tableTopData = data;
+    console.log(data);
     processTableTopData(data);
   }
 
@@ -162,10 +163,10 @@
       var gravatar = get_gravatar_image_url(email, 200);
       var template =        '';
       template = template + '<img src="' + gravatar + '">';
-      template = template + '<h2>' + accessed.name + '</h2>';
-      template = template + '<h3>' + accessed.job + '</h3>';
-      template = template + '<div class="bio-links"><a class="btn btn-info btn-sm" target="_blank" href="https://twitter.com/' + accessed.twitter + '">Twitter</a></div>';
-      template = template + '<p>' + accessed.skill + '</p>';
+      template = template + '<h2>' + accessed['What is your name?'] + '</h2>';
+      template = template + '<h3>' + accessed['Where do you work?'] + '</h3>';
+      template = template + '<div class="bio-links"><a class="btn btn-info btn-sm" target="_blank" href="https://twitter.com/' + accessed['What is your Twitter handle?'] + '">Twitter</a></div>';
+      template = template + '<p>' + accessed['Select the discipline(s) that best applies to your work or interests'] + '</p>';
       content.push(template);
     }
     renderData(content);
@@ -178,7 +179,6 @@
       document.querySelector('#profile_container').appendChild( isDiv );
     }
   }
-
 
   (function($){
     $(document).ready(function(){init()});
