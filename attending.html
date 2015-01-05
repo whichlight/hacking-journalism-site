@@ -170,7 +170,9 @@
       template = template + '<h3>' + accessed['Where do you work?'] + '</h3>';
       template = template + '<div class="bio-links"><a class="btn btn-info btn-sm" target="_blank" href="https://twitter.com/' + accessed['What is your Twitter handle?'] + '">Twitter</a></div>';
       template = template + '<p>' + accessed['Select the discipline(s) that best applies to your work or interests'] + '</p>';
-      content.push(template);
+      if(accessed['Reconfirmed'] != ""){
+        content.push(template);
+      }
     }
     renderData(content);
   }
