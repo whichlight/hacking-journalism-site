@@ -173,7 +173,7 @@
         template = template + '<div class="bio-links"><a class="btn btn-info btn-sm" target="_blank" href="https://twitter.com/' + twitter + '">Twitter</a></div>';
       }
       template = template + '<p>' + accessed['Select the discipline(s) that best applies to your work or interests'] + '</p>';
-      if(accessed['Reconfirmed'] != ""){
+      if(accessed['Reconfirmed'] != "" && accessed['Reconfirmed'] != "Waiting" && accessed['Reconfirmed'] != "Canceled"){
         content.push(template);
       }
     }
