@@ -22,7 +22,7 @@
 
 
 <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-
+<h1>Total accepted: <span class="total-number"></span></h1>
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
@@ -89,6 +89,11 @@
   function showInfo(data, tabletop) {
     window.tableTopData = data;
     createDataSet(data);
+    showTotalNumber(data);
+  }
+
+  function showTotalNumber(data){
+    document.querySelector('.total-number').innerHTML = data.length;
   }
 
   function createDataSet(data){
