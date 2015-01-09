@@ -29,8 +29,110 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+
+<script type="text/javascript">
+
+  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1J3TUV3YcFJDmBZ0BMrbeKaR99OG8W5iOc9td7-XcJz8/pubhtml';
+
+  var skillset = [
+                  'Academic',
+                  'Animation',
+                  'Back-end development',
+                  'Designer / UX',
+                  'Front-end development',
+                  'Product development',
+                  'Project management',
+                  'Reporter/Journalist',
+                  'Social media',
+                  'Videographer (includes shooters editors production crew)'
+                  ];
+
+  var skilltrack = {
+    'Designer / UX': {
+      'value': 0
+    },
+    'Front-end development': {
+      'value': 0
+    },
+    'Back-end development': {
+      'value': 0
+    },
+    'Reporter/Journalist': {
+      'value': 0
+    },
+    'Animation': {
+      'value': 0
+    },
+    'Videographer (includes shooters editors production crew)': {
+      'value': 0
+    },
+    'Academic': {
+      'value': 0
+    },
+    'Social media': {
+      'value': 0
+    },
+    'Product development': {
+      'value': 0
+    },
+    'Project management': {
+      'value': 0
+    }
+  };
+
+  function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
+
+  function showInfo(data, tabletop) {
+    window.tableTopData = data;
+    createDataSet(data);
+  }
+
+  function createDataSet(data){
+    for(i = 0; i < data.length; i++){
+      var set = data[i];
+      var discipline = set['Select the discipline(s) that best applies to your work or interests'];
+      if(discipline.indexOf('Videographer (includes shooters, editors, production crew)') > -1){
+        discipline = discipline.replace('Videographer (includes shooters, editors, production crew)', 'Videographer (includes shooters editors production crew)');
+      }
+
+      var skills = discipline.split(',');
+      for(j = 0; j < skills.length; j++){
+        skills[j] = skills[j].trim();
+        for(k = 0; k < skillset.length; k++){
+          if(skillset[k] == skills[j]){
+            skilltrack[skillset[k]]['value'] = skilltrack[skillset[k]]['value'] + 1;
+          }
+        }
+      }
+      data[i]['skills'] = skills;
+    }
+    createGraphArray(skilltrack);
+  }
+
+  function createGraphArray(data){
+    window.dataArray = [];
+    for(i = 0; i < skillset.length; i++){
+      dataArray.push(data[skillset[i]]['value']);
+    }
+    console.log(skillset);
+    console.log(dataArray);
+    setUpHighChart(dataArray);
+  }
+
+  (function($){
+    $(document).ready(function(){init()});
+  })(jQuery);
+
+  </script>
+
+
+
 <script>
-  $(function () {
+function setUpHighChart(dataArray) {
     $('#container').highcharts({
         chart: {
             type: 'bar'
@@ -42,16 +144,7 @@
             text: 'Source: Wikipedia.org'
         },
         xAxis: {
-            categories: ['Designer / UX',
-                        'Front-end development',
-                        'Back-end development',
-                        'Reporter/Journalist',
-                        'Animation',
-                        'Videographer (includes shooters, editors, production crew)',
-                        'Academic',
-                        'Social media',
-                        'Product development',
-                        'Project management'],
+            categories: skillset,
 
             title: {
                 text: null
@@ -92,98 +185,13 @@
             enabled: false
         },
         series: [{
-            name: 'Year 2008',
-            data: [973, 914, 4054, 732, 34]
+            name: 'Hacking Journalism Jan. 2015',
+            data: dataArray
         }]
     });
-});
+};
 
 </script>
-
-<script type="text/javascript">
-
-  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1J3TUV3YcFJDmBZ0BMrbeKaR99OG8W5iOc9td7-XcJz8/pubhtml';
-
-  var skillset = ['Designer / UX',
-                  'Front-end development',
-                  'Back-end development',
-                  'Reporter/Journalist',
-                  'Animation',
-                  'Videographer (includes shooters, editors, production crew)',
-                  'Academic',
-                  'Social media',
-                  'Product development',
-                  'Project management'];
-
-  var skilltrack = {
-    'Designer / UX': {
-      'value': 0
-    },
-    'Front-end development': {
-      'value': 0
-    },
-    'Back-end development': {
-      'value': 0
-    },
-    'Reporter/Journalist': {
-      'value': 0
-    },
-    'Animation': {
-      'value': 0
-    },
-    'Videographer (includes shooters, editors, production crew)': {
-      'value': 0
-    },
-    'Academic': {
-      'value': 0
-    },
-    'Social media': {
-      'value': 0
-    },
-    'Product development': {
-      'value': 0
-    },
-    'Project management': {
-      'value': 0
-    }
-  };
-
-  function init() {
-    Tabletop.init( { key: public_spreadsheet_url,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
-
-  function showInfo(data, tabletop) {
-    window.tableTopData = data;
-    createDataSet(data);
-  }
-
-  function createDataSet(data){
-    for(i = 0; i < data.length; i++){
-      var set = data[i];
-      var discipline = set['Select the discipline(s) that best applies to your work or interests'];
-      var skills = discipline.split(',');
-      for(j = 0; j < skills.length; j++){
-        skills[j] = skills[j].trim();
-        for(k = 0; k < skillset.length; k++){
-          console.log('skillset[k] ', skillset[k]);
-          console.log('skills[j] ', skills[j]);
-          if(skillset[k] == skills[j]){
-            skilltrack[skillset[k]]['value'] = skilltrack[skillset[k]]['value'] + 1;
-          }
-        }
-      }
-      data[i]['skills'] = skills;
-    }
-    console.log(skilltrack);
-  }
-
-  (function($){
-    $(document).ready(function(){init()});
-  })(jQuery);
-
-  </script>
 
   </body>
 
