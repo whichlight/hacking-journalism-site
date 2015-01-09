@@ -45,6 +45,19 @@
 
   function showInfo(data, tabletop) {
     window.tableTopData = data;
+    createDataSet(data);
+  }
+
+  function createDataSet(data){
+    for(i = 0; i < data.length; i++){
+      var set = data[i];
+      var discipline = set['Select the discipline(s) that best applies to your work or interests'];
+      var skills = discipline.split(',');
+      for(j = 0; j < skills.length; j++){
+        skills[j] = skills[j].trim();
+      }
+      data[i]['skills'] = skills;
+    }
     console.log(data);
   }
 
