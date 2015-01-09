@@ -20,22 +20,133 @@
   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
 
-    <div class="row">
-      <div class="col-lg-12 bios">
 
-        <ul id="profile_container" class="large-block-grid-4 medium-block-grid-3 small-block-grid-2">
-
-        </ul>
-
-      </div>
-    </div>
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+  $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Attendees'
+        },
+        subtitle: {
+            text: 'Source: Wikipedia.org'
+        },
+        xAxis: {
+            categories: ['Designer / UX',
+                        'Front-end development',
+                        'Back-end development',
+                        'Reporter/Journalist',
+                        'Animation',
+                        'Videographer (includes shooters, editors, production crew)',
+                        'Academic',
+                        'Social media',
+                        'Product development',
+                        'Project management'],
+
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Year 2008',
+            data: [973, 914, 4054, 732, 34]
+        }]
+    });
+});
+
+</script>
+
 <script type="text/javascript">
 
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1J3TUV3YcFJDmBZ0BMrbeKaR99OG8W5iOc9td7-XcJz8/pubhtml';
+
+  var skillset = ['Designer / UX',
+                  'Front-end development',
+                  'Back-end development',
+                  'Reporter/Journalist',
+                  'Animation',
+                  'Videographer (includes shooters, editors, production crew)',
+                  'Academic',
+                  'Social media',
+                  'Product development',
+                  'Project management'];
+
+  var skilltrack = {
+    'Designer / UX': {
+      'value': 0
+    },
+    'Front-end development': {
+      'value': 0
+    },
+    'Back-end development': {
+      'value': 0
+    },
+    'Reporter/Journalist': {
+      'value': 0
+    },
+    'Animation': {
+      'value': 0
+    },
+    'Videographer (includes shooters, editors, production crew)': {
+      'value': 0
+    },
+    'Academic': {
+      'value': 0
+    },
+    'Social media': {
+      'value': 0
+    },
+    'Product development': {
+      'value': 0
+    },
+    'Project management': {
+      'value': 0
+    }
+  };
 
   function init() {
     Tabletop.init( { key: public_spreadsheet_url,
@@ -55,10 +166,17 @@
       var skills = discipline.split(',');
       for(j = 0; j < skills.length; j++){
         skills[j] = skills[j].trim();
+        for(k = 0; k < skillset.length; k++){
+          console.log('skillset[k] ', skillset[k]);
+          console.log('skills[j] ', skills[j]);
+          if(skillset[k] == skills[j]){
+            skilltrack[skillset[k]]['value'] = skilltrack[skillset[k]]['value'] + 1;
+          }
+        }
       }
       data[i]['skills'] = skills;
     }
-    console.log(data);
+    console.log(skilltrack);
   }
 
   (function($){
