@@ -236,6 +236,14 @@ a:focus {
 #speakers .bios h3 {
   color: #ffffff;
 }
+
+#workshops .bios p {
+  color: #ffffff;
+}
+#workshops .bios h3 {
+  color: #ffffff;
+}
+
 .logos {
   margin-top: 40px;
 }
@@ -341,10 +349,29 @@ a:focus {
   color: #662546;
   background-color: #1bd9f5;
 }
+
+#party h2{
+color:#ff00ff;
+}
+
 .btn-huge {
   padding: 25px;
   font-size: 26px;
 }
+
+.btn-huge-p{
+  border: 1px solid #662546;
+  color: #662546;
+  background-color: transparent;
+}
+.btn-huge-p:hover,
+.btn-huge-p:focus {
+  border: 1px solid #662546;
+  outline: none;
+  color: #1bd9f5;
+  background-color: #662546;
+}
+
 .banner-social-buttons {
   margin-top: 0;
 }
