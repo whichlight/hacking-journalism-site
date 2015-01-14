@@ -350,6 +350,9 @@ a:focus {
   background-color: #1bd9f5;
 }
 
+#intro-party a{
+color:#ff00ff;
+}
 #party h2{
 color:#ff00ff;
 }
