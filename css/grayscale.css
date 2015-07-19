@@ -216,17 +216,31 @@ a:focus {
 .bios img {
   width: 200px;
   margin-top: 10px;
+  border-radius: 3px;
 }
+
+.bios h2 {
+  height: 60px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.bios h2 a {
+  margin-left: 5px;
+}
+
 .bios h3 {
   color: #777;
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: 35px;
+  overflow: hidden;
 }
 .bios p {
   font-size: 15px;
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
   color: #777;
   margin: 0px;
 }
@@ -497,3 +511,5 @@ tr {
 #footer .footer-content a {
   color: #662546;
 }
+
+
